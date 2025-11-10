@@ -189,6 +189,27 @@
 
 print("Calculadora pro")
 
+def sumas(num1, num2):
+    resultado = num1 + num2
+    return resultado
+def resta(num1, num2):
+    resultado = num1 - num2
+    return resultado
+def multi(num1, num2):
+    resultado = num1 * num2
+    return resultado
+def div(num1, num2):
+    resultado = num1 / num2
+    return resultado
+def pot(num1, num2):
+    resultado = num1 ** num2
+    return resultado
+def modulo(num1, num2):
+    resultado = num1 % num2
+    return resultado
+def div_exacta(num1, num2):
+    resultado = num1 // num2
+    return resultado
 
 
 #30. Agenda de contactos (lista de diccionarios).
