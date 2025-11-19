@@ -96,8 +96,11 @@
 
 #4. Máquina de bebidas (condicionales + loops)
 
-maquina = {"Agua" : 1, "Jugo" : 2, "Cafe" : 3 }
-billetes = [1,5,10]
+productos = [{"producto" : "Agua", "valor" : 1},
+            {"producto":"Jugo", "valor" : 2},
+            {"producto" : "Cafe","valor" : 3 }
+            ]
+pagos_permitidos = [0.5,1.0,5.0,10.0]
 
 # El programa debe:
 
@@ -111,8 +114,71 @@ billetes = [1,5,10]
 while True:
     try:
         print("1. Elegir el producto")
-        print("2. Pagar producto")
-        print("3. Salir ")
+        print("2. Salir ")
         
+        opcion = int(input("Ingrese la opcion deseada: "))
+
+        if opcion == 1:
+            print("-----Productos-----")
+            while True:
+                try:
+                    for i in productos:
+                        print(f"{productos.index(i)+1}. Producto: {i["producto"]} | Valor: ${i["valor"]}.")
+                    print("4. Salir.")
+                    option = int(input("Ingrese el numero del producto que desea comprar: "))
+                    if option == 1:
+                        print(f"Producto seleccionado: {productos[0]["producto"]}")
+                        print(f"Valor del producto: ${productos[0]["valor"]}")
+                        pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
+                        if pago in pagos_permitidos:
+                            if float(productos[0]["valor"]) > pago:
+                                print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[0]["producto"]}.")
+                            elif float(productos[0]["valor"]) == pago:
+                                print(f"Pago recibido, Entregando producto {productos[0]["producto"]}.")
+                            else:
+                                print(f"Pago recibido, Entregando producto {productos[0]["producto"]}.")
+                                print(f"Su devuelta es ${pago - float(productos[0]["valor"])}")
+                        else:
+                            print("El billete o metodo de pago seleccionado no es valido.")
+                    elif option == 2:
+                        print(f"Producto seleccionado: {productos[1]["producto"]}")
+                        print(f"Valor del producto: ${productos[1]["valor"]}")
+                        pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
+                        if pago in pagos_permitidos:
+                            if float(productos[1]["valor"]) > pago:
+                                print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[1]["producto"]}.")
+                            elif float(productos[1]["valor"]) == pago:
+                                print(f"Pago recibido, Entregando producto {productos[1]["producto"]}.")
+                            else:
+                                print(f"Pago recibido, Entregando producto {productos[1]["producto"]}.")
+                                print(f"Su devuelta es ${pago - float(productos[1]["valor"])}")
+                        else:
+                            print("El billete o metodo de pago seleccionado no es valido.")
+                    elif option == 3:
+                        print(f"Producto seleccionado: {productos[2]["producto"]}")
+                        print(f"Valor del producto: ${productos[2]["valor"]}")
+                        pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
+                        if pago in pagos_permitidos:
+                            if float(productos[2]["valor"]) > pago:
+                                print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[2]["producto"]}.")
+                            elif float(productos[2]["valor"]) == pago:
+                                print(f"Pago recibido, Entregando producto {productos[2]["producto"]}.")
+                            else:
+                                print(f"Pago recibido, Entregando producto {productos[2]["producto"]}.")
+                                print(f"Su devuelta es ${pago - float(productos[2]["valor"])}")
+                        else:
+                            print("El billete o metodo de pago seleccionado no es valido.")
+                    elif option == 4:
+                        print("Volviendo al menu principal.")
+                        break
+                    else:
+                        print(F"El producto {option}, seleccione un producto existente(1-3).")
+                except ValueError:
+                    print("Error: ingrese un valor valido.")
+        elif opcion == 2:
+            print("Vuelva pronto.")
+            break
+        else:
+            print("Ingrese una opcion valida.")
     except ValueError:
         print("Error: ingrese un valor valido.")
