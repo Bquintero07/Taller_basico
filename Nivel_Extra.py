@@ -96,89 +96,154 @@
 
 #4. Máquina de bebidas (condicionales + loops)
 
-productos = [{"producto" : "Agua", "valor" : 1},
-            {"producto":"Jugo", "valor" : 2},
-            {"producto" : "Cafe","valor" : 3 }
-            ]
-pagos_permitidos = [0.5,1.0,5.0,10.0]
+# productos = [{"producto" : "Agua", "valor" : 1},
+#             {"producto":"Jugo", "valor" : 2},
+#             {"producto" : "Cafe","valor" : 3 }
+#             ]
+# pagos_permitidos = [0.5,1.0,5.0,10.0]
 
-# El programa debe:
-
-# mostrar el menú
-# pedir al usuario que elija
-# pedir el pago
-# validar si el dinero es suficiente
-# devolver cambio si aplica
-# imprimir un mensaje de compra exitosa
-
-while True:
-    try:
-        print("1. Elegir el producto")
-        print("2. Salir ")
+# while True:
+#     try:
+#         print("1. Elegir el producto")
+#         print("2. Salir ")
         
-        opcion = int(input("Ingrese la opcion deseada: "))
+#         opcion = int(input("Ingrese la opcion deseada: "))
 
-        if opcion == 1:
-            print("-----Productos-----")
-            while True:
-                try:
-                    for i in productos:
-                        print(f"{productos.index(i)+1}. Producto: {i["producto"]} | Valor: ${i["valor"]}.")
-                    print("4. Salir.")
-                    option = int(input("Ingrese el numero del producto que desea comprar: "))
-                    if option == 1:
-                        print(f"Producto seleccionado: {productos[0]["producto"]}")
-                        print(f"Valor del producto: ${productos[0]["valor"]}")
-                        pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
-                        if pago in pagos_permitidos:
-                            if float(productos[0]["valor"]) > pago:
-                                print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[0]["producto"]}.")
-                            elif float(productos[0]["valor"]) == pago:
-                                print(f"Pago recibido, Entregando producto {productos[0]["producto"]}.")
-                            else:
-                                print(f"Pago recibido, Entregando producto {productos[0]["producto"]}.")
-                                print(f"Su devuelta es ${pago - float(productos[0]["valor"])}")
-                        else:
-                            print("El billete o metodo de pago seleccionado no es valido.")
-                    elif option == 2:
-                        print(f"Producto seleccionado: {productos[1]["producto"]}")
-                        print(f"Valor del producto: ${productos[1]["valor"]}")
-                        pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
-                        if pago in pagos_permitidos:
-                            if float(productos[1]["valor"]) > pago:
-                                print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[1]["producto"]}.")
-                            elif float(productos[1]["valor"]) == pago:
-                                print(f"Pago recibido, Entregando producto {productos[1]["producto"]}.")
-                            else:
-                                print(f"Pago recibido, Entregando producto {productos[1]["producto"]}.")
-                                print(f"Su devuelta es ${pago - float(productos[1]["valor"])}")
-                        else:
-                            print("El billete o metodo de pago seleccionado no es valido.")
-                    elif option == 3:
-                        print(f"Producto seleccionado: {productos[2]["producto"]}")
-                        print(f"Valor del producto: ${productos[2]["valor"]}")
-                        pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
-                        if pago in pagos_permitidos:
-                            if float(productos[2]["valor"]) > pago:
-                                print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[2]["producto"]}.")
-                            elif float(productos[2]["valor"]) == pago:
-                                print(f"Pago recibido, Entregando producto {productos[2]["producto"]}.")
-                            else:
-                                print(f"Pago recibido, Entregando producto {productos[2]["producto"]}.")
-                                print(f"Su devuelta es ${pago - float(productos[2]["valor"])}")
-                        else:
-                            print("El billete o metodo de pago seleccionado no es valido.")
-                    elif option == 4:
-                        print("Volviendo al menu principal.")
-                        break
-                    else:
-                        print(F"El producto {option}, seleccione un producto existente(1-3).")
-                except ValueError:
-                    print("Error: ingrese un valor valido.")
-        elif opcion == 2:
-            print("Vuelva pronto.")
-            break
-        else:
-            print("Ingrese una opcion valida.")
-    except ValueError:
-        print("Error: ingrese un valor valido.")
+#         if opcion == 1:
+#             print("-----Productos-----")
+#             while True:
+#                 try:
+#                     for i in productos:
+#                         print(f"{productos.index(i)+1}. Producto: {i["producto"]} | Valor: ${i["valor"]}.")
+#                     print("4. Salir.")
+#                     option = int(input("Ingrese el numero del producto que desea comprar: "))
+#                     if option == 1:
+#                         print(f"Producto seleccionado: {productos[0]["producto"]}")
+#                         print(f"Valor del producto: ${productos[0]["valor"]}")
+#                         pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
+#                         if pago in pagos_permitidos:
+#                             if float(productos[0]["valor"]) > pago:
+#                                 print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[0]["producto"]}.")
+#                             elif float(productos[0]["valor"]) == pago:
+#                                 print(f"Pago recibido, Entregando producto {productos[0]["producto"]}.")
+#                             else:
+#                                 print(f"Pago recibido, Entregando producto {productos[0]["producto"]}.")
+#                                 print(f"Su devuelta es ${pago - float(productos[0]["valor"])}")
+#                         else:
+#                             print("El billete o metodo de pago seleccionado no es valido.")
+#                     elif option == 2:
+#                         print(f"Producto seleccionado: {productos[1]["producto"]}")
+#                         print(f"Valor del producto: ${productos[1]["valor"]}")
+#                         pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
+#                         if pago in pagos_permitidos:
+#                             if float(productos[1]["valor"]) > pago:
+#                                 print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[1]["producto"]}.")
+#                             elif float(productos[1]["valor"]) == pago:
+#                                 print(f"Pago recibido, Entregando producto {productos[1]["producto"]}.")
+#                             else:
+#                                 print(f"Pago recibido, Entregando producto {productos[1]["producto"]}.")
+#                                 print(f"Su devuelta es ${pago - float(productos[1]["valor"])}")
+#                         else:
+#                             print("El billete o metodo de pago seleccionado no es valido.")
+#                     elif option == 3:
+#                         print(f"Producto seleccionado: {productos[2]["producto"]}")
+#                         print(f"Valor del producto: ${productos[2]["valor"]}")
+#                         pago = float(input("Ingrese su pago(Pagos validos: $0.5, $1, $5, $10): "))
+#                         if pago in pagos_permitidos:
+#                             if float(productos[2]["valor"]) > pago:
+#                                 print(f"El pago ingresado {pago} no es suficiente para comprar el producto {productos[2]["producto"]}.")
+#                             elif float(productos[2]["valor"]) == pago:
+#                                 print(f"Pago recibido, Entregando producto {productos[2]["producto"]}.")
+#                             else:
+#                                 print(f"Pago recibido, Entregando producto {productos[2]["producto"]}.")
+#                                 print(f"Su devuelta es ${pago - float(productos[2]["valor"])}")
+#                         else:
+#                             print("El billete o metodo de pago seleccionado no es valido.")
+#                     elif option == 4:
+#                         print("Volviendo al menu principal.")
+#                         break
+#                     else:
+#                         print(F"El producto {option}, seleccione un producto existente(1-3).")
+#                 except ValueError:
+#                     print("Error: ingrese un valor valido.")
+#         elif opcion == 2:
+#             print("Vuelva pronto.")
+#             break
+#         else:
+#             print("Ingrese una opcion valida.")
+#     except ValueError:
+#         print("Error: ingrese un valor valido.")
+
+# ejercicios de practica con archivos
+
+#Ejercicio 1: Guardar frutas
+# fruits = []
+
+# with open("frutas.txt", "w") as file:
+#     for i in range(5):
+#         fruit = input(f"Ingrese la fruta numero {i+1}: ").capitalize()
+#         fruits.append(fruit)
+#     for fruit in fruits:
+#         file.write(f"Esta es la Fruta {fruits.index(fruit)+1}: {fruit}\n")
+
+#Ejercicio 2: Contar líneas
+# lines = []
+
+# with open("frutas.txt", "r") as file1:
+#     for line in file1:
+#         lines.append(line)
+#     counter = len(lines)
+#     print(f"En el archivo hay {counter} lineas escritas.")
+
+#Ejercicio 3: Buscar una palabra
+# lines = []
+
+# with open("frutas.txt", "r") as file:
+#     word = input("Ingrese la palabra que desea buscar: ").lower()
+#     for line in file:
+#         if word in line.lower():
+#             lines.append(line)
+#     if len(lines) > 0:
+#         for line in lines:
+#             print(f"{line}")
+#     else:
+#         print("La palabra no esta en el archivo.")
+
+#Ejercicio 4: Crear lista de tareas
+# num = 0
+# with open ("tareas.txt", "+a") as file2:
+#     while True:
+#         num +=1
+#         tarea = input("Ingrese la tarea o 'salir' para finalizar: ").lower()
+#         if tarea != "salir":
+#             file2.write(f"{num}. {tarea}.\n")
+#         else:
+#             break
+
+#Ejercicio 5: Guardar números pares
+# with open("pares.txt", "w") as file4:
+#     for i in range(1,101):
+#         if i % 2 ==0:
+#             file4.write(f"{i}\n")
+
+
+#Ejercicio 6: Transformar datos
+names = []
+try:
+    with open("nombres.txt", "r") as file5:
+        for line in file5:
+            names.append(line.upper())
+        if len(names) != 0:
+            with open("nombres_upper.txt" , "w") as file6:
+                for name in names:
+                    file6.write(name)
+                print("Archivo creado con exito.")
+except FileNotFoundError:
+    print("El archivo estaba vacio o no existia, vamos a llenarlo")
+    with open("nombres.txt", "w") as file7:
+        while True:
+            name = input("Ingrese un nombre o 'salir' para finalizar: ").lower()
+            if name != "salir":
+                file7.write(f"{name}\n")
+            else:
+                break
