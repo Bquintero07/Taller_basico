@@ -80,3 +80,18 @@ elif numero2 > numero1 and numero2 > numero3:
     print(f"El numero {numero2} es el mayor")
 elif numero3 > numero1 and numero3 > numero2:
     print(f"El numero {numero3} es el mayor")
+
+# def check_book_name(books_inventory):
+#     while True:
+#         book_sold = input("Ingrese el titulo del libro vendido: ").capitalize().strip()
+#         for book in books_inventory:
+#             if book["Title"].lower() == book_sold.lower():
+#                 return book_sold
+#         else:
+#             print(f"El titulo {book_sold} ingresado no existe en el inventario.")
+
+        # client_name = input("Ingrese el nombre del cliente: ").capitalize().strip()
+        # book_sold = check_book_name(books_inventory)
+        # book_stock = check_stock(books_inventory, book_sold)
+        # sale_date = input("Ingrese la fecha de venta(DD/MM/AAAA): ")
+        # discount = check_discount(books_inventory, book_sold)
